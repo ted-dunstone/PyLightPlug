@@ -10,7 +10,7 @@ Introduction
 Rational
 --------
 
-Those building scientific applications often require a way to extend application functionality, whilst sheltering the user from needing to know too much about the underlying application design. Plugin systems are usually designed to provide a way to abstract and extend functionality - and need a simple way of registering and obvious documentation. PyLightPlug uses meta classes and doc string introspection that is tailored for scientific applications. It provides the following benefits:
+Those building scientific applications often require a way to extend application functionality, whilst sheltering the user from needing to know too much about the underlying application design. Plugin systems are usually designed to provide a way to abstract and extend functionality - and need a simple way of registering and ieasily maintained documentation. PyLightPlug uses meta classes and doc string introspection that is tailored for scientific applications. It aims to provides the following benefits:
 
 #. Documentation: A structured doc string is used as part of the specification for the plugin. The format follows the Sphinx standard and hence provides well documented user information about the plugin. The same information is also is used to determine if the plugin can run (requirements filtering) as well as other display related attributes.
 #. Requirements Filtering: Requirements are filtered based on one or more evaluated commands embedded in the doc string using a sphinx like format. These are used to determine if a plugin can run based on meta-data provided as dictionaries by the plugin manager.
