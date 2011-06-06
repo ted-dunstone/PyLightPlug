@@ -54,8 +54,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Performix'
-copyright = u'2011, Biometix'
+project = u'PyLightPlug'
+copyright = u'2011, AIFDR'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -178,7 +178,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Performix'
+htmlhelp_basename = 'PyLightPlug'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -192,8 +192,8 @@ htmlhelp_basename = 'Performix'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Performix.tex', u'Performix Documentation',
-   u'Biometix', 'manual'),
+  ('index', 'PyLightPlug.tex', u'PyLightPlug Documentation',
+   u'AIFDR', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -225,7 +225,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'Performix', u'Performix Development - Documentation',
+    ('index', 'PyLightPlug', u'PyLightPlug Development - Documentation',
      [u'AIFDR - Ted Dunstone'], 1)
 ]
 
@@ -233,7 +233,7 @@ man_pages = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'Performix'
+epub_title = u'PyLightPlug'
 epub_author = u'AIFDR - Ted Dunstone'
 epub_publisher = u'AIFDR - Ted Dunstone'
 epub_copyright = u'2011, AIFDR - Ted Dunstone'
