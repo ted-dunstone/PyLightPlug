@@ -2,10 +2,9 @@
 Introduction
 ============
 
-.. topic:: Performix
+.. topic:: PyLightPlug
 
-   A reporting infrastructure for biometric applications.
-
+  A light weight python plugin system for scientific applications 
 
 --------
 Rational
