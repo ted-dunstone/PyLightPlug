@@ -4,6 +4,16 @@ Plugin Manager
 
 The plugin manager keeps track of all the plugins and searching, requirements checking and retrieval functions. All communications with the plugin are achieved through a dictionary.
 
+.. figure:: https://docs.google.com/drawings/pub?id=12xmm97658xWAY7bjQ4b6MicKd_l3IpP5ZIKT96RF1XM&w=640&h=480
+
+    :scale: 25 %
+    
+    Plugin connectivity. Plugins can derive from base plugins (Plugin 1 -> Plugin 1a). Objects or dictionaries are passed down and results of the plugin are passed back to the application 
+    
+.. raw:: html
+
+    <div class="prezi-player"><style type="text/css" media="screen">.prezi-player { width: 550px; } .prezi-player-links { text-align: center; }</style><object id="prezi_kbelff3fw__7" name="prezi_kbelff3fw__7" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="550" height="400"><param name="movie" value="http://prezi.com/bin/preziloader.swf"/><param name="allowfullscreen" value="true"/><param name="allowscriptaccess" value="always"/><param name="bgcolor" value="#ffffff"/><param name="flashvars" value="prezi_id=kbelff3fw__7&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no&amp;autohide_ctrls=0"/><embed id="preziEmbed_kbelff3fw__7" name="preziEmbed_kbelff3fw__7" src="http://prezi.com/bin/preziloader.swf" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="550" height="400" bgcolor="#ffffff" flashvars="prezi_id=kbelff3fw__7&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no&amp;autohide_ctrls=0"></embed></object><div class="prezi-player-links"><p><a title="Python Plugin" href="http://prezi.com/kbelff3fw__7/pylightplug/">PyLightPlug</a> on <a href="http://prezi.com">Prezi</a></p></div></div>
+
 When building your plugin manager the following functions are exposed by PyLightPlug::
         
     def get_function(name):
