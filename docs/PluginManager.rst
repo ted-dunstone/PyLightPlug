@@ -9,6 +9,7 @@ The plugin manager keeps track of all the plugins and searching, requirements ch
     :scale: 25 %
     
     Plugin connectivity. Plugins can derive from base plugins (Plugin 1 -> Plugin 1a). Objects or dictionaries are passed down and results of the plugin are passed back to the application 
+
     
 .. raw:: html
 
@@ -65,6 +66,5 @@ Getting a list of valid plugins
 To get a list of plugins that can execute for a given context (i.e. from a menu or selection box) all available plugins must be checked to see if the requirements are met::
 
     input_params = dict(category = 'hazard', subcategory='....')
-    my_plugin = [get_function(name) 
-    for name in get_all_functions()
-        if requirement_met(my_plugin,params = input_params)]
+    plugin_list=plugins_requirements_met(input_params)
+    plugin_names = [pretty_function_name(func) for func in plugin_list]
