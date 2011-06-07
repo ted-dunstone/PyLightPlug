@@ -13,7 +13,7 @@ Contents:
 
    Introduction
    Development
-   Examples
+   PluginManager
 
 Indices and tables
 ==================
