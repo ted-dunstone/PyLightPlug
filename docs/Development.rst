@@ -6,7 +6,7 @@ Plugin Development
 Introduction
 ------------
 
-There are many ways of developing plugin systems, and every project has different requirements. Some requirements however that are common (particluarly for Scientific apps) include: 
+There are many ways of developing plugin systems, and every project has different requirements. Some requirements that are common,particluarly for scientific apps, include: 
 
 * Auto registration of new plugins and the automatic update during development
 * Derivation of more complex plugins from simpler ones
@@ -16,9 +16,6 @@ There are many ways of developing plugin systems, and every project has differen
 * Provide good documentation on functionality
 
 PyLightPlug uses the metaclass plugins pattern to achieve a lightweight extensible plugin (See [#metaclass_link]_).It is initially centered around providing a simple discovery mechanism to ensure the correct plugin can be chosen dependant on requirements.
-
-.. [#metaclass_link] The following has a good decription of a metaclass plugin implemtation http://effbot.org/zone/metaclass-plugins.htm
-
 
 ------------
 Installation
@@ -99,4 +96,5 @@ At the end of the function the calculated impact is returned. This can be any ob
 
 .. note:: As the doc string is exec'ed as part of the requirements check it could be that security issues would be exposed. However it should be noted that if one can change the docstring, then any other malicious code injection would also be possible. The only objection then is that it is less noticeable in the doc string.
 
+.. [#metaclass_link] This link has a good decription of a metaclass plugin implemtation http://effbot.org/zone/metaclass-plugins.htm
 
