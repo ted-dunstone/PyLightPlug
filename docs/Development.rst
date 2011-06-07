@@ -6,7 +6,7 @@ Plugin Development
 Introduction
 ------------
 
-There are many ways of developing plugin systems, and every project has different requirements. Some requirements that are common,particluarly for scientific apps, include: 
+There are many ways of developing plugin systems, and every project has different requirements. Some requirements that are common, particularly for scientific apps, include: 
 
 * Auto registration of new plugins and the automatic update during development
 * Derivation of more complex plugins from simpler ones
@@ -97,4 +97,4 @@ At the end of the function the calculated impact is returned. This can be any ob
 .. note:: As the doc string is exec'ed as part of the requirements check it could be that security issues would be exposed. However it should be noted that if one can change the docstring, then any other malicious code injection would also be possible. The only objection then is that it is less noticeable in the doc string.
 
 .. [#metaclass_link] This link has a good decription of a metaclass plugin implemtation http://effbot.org/zone/metaclass-plugins.htm
-
+ 
