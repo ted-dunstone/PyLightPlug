@@ -2,7 +2,7 @@
 Plugin Manager
 ==============
 
-The plugin manager keeps track of all the plugins and searching, requirements checking and retrieval functions. All communications with the plugin are achieved through a dictionary.
+The plugin manager keeps track of all the plugins and searching, requirements checking and retrieval functions. Communications with the plugin are achieved through the application passing in a dictionary and recieving back an object in return. The application should know what to do with the object on return.
 
 .. figure:: https://docs.google.com/drawings/pub?id=12xmm97658xWAY7bjQ4b6MicKd_l3IpP5ZIKT96RF1XM&w=640&h=480
 
