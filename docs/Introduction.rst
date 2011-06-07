@@ -10,7 +10,12 @@ Introduction
 Rational
 --------
 
-Those building scientific applications often require a way to extend application functionality, whilst sheltering the user from needing to know too much about the underlying application design. Plugin systems are usually designed to provide a way to abstract and extend functionality - and need a simple way of registering and ieasily maintained documentation. PyLightPlug uses meta classes and doc string introspection that is tailored for scientific applications. It aims to provides the following benefits:
+Many python projects require plug-in functionality. This is particularly true of scientific applications where it is expected that the user will want to extend the out-of-the box abilities of an application for instance adding new graph types or customized functions.
+
+There are a number of different plugin systems avaliable, however many suffer from being either inflexible or too heavy weight. There are however some good plug-in patterns avaliable and developers frequently 'roll-there-own'
+to suit the application requirements. It is the aim of this module to provide the basis for a flexible plugin-system that can be used for a wide variety of different applications and allow the developer to focus on the app not on the plugin system, and the user to be able to simply build plugins.
+
+PyLightPlug uses meta classes and doc string introspection that is tailored for scientific applications. It aims to provides the following benefits:
 
 #. Documentation: A structured doc string is used as part of the specification for the plugin. The format follows the Sphinx standard and hence provides well documented user information about the plugin. The same information is also is used to determine if the plugin can run (requirements filtering) as well as other display related attributes.
 #. Requirements Filtering: Requirements are filtered based on one or more evaluated commands embedded in the doc string using a sphinx like format. These are used to determine if a plugin can run based on meta-data provided as dictionaries by the plugin manager.

@@ -6,22 +6,18 @@ Plugin Development
 Introduction
 ------------
 
-There are many ways of developing plugin systems, and every project has different requirements. 
-Some requirements however that are universal (particluarly for Scientific apps) include: 
-
+There are many ways of developing plugin systems, and every project has different requirements. Some requirements however that are common (particluarly for Scientific apps) include: 
 
 * Auto registration of new plugins and the automatic update during development
 * Derivation of more complex plugins from simpler ones
-* Specify parameters that can be passed to the plugin
+* Specifying parameters that can be passed to the plugin
 * Have the plugin manager determine which plugins can be used at any time
-* Allow for additional functions easily later
+* Allow for additional functionality to be added easily
 * Provide good documentation on functionality
 
-PyLightPlug uses the metaclass plugins pattern to achieve a lightweight extensible plugin (See [#metaclass_link]_).
-It is initially centered around providing a simple discovery mechanism to ensure the correct plugin can be chosen dependant on requirements.
+PyLightPlug uses the metaclass plugins pattern to achieve a lightweight extensible plugin (See [#metaclass_link]_).It is initially centered around providing a simple discovery mechanism to ensure the correct plugin can be chosen dependant on requirements.
 
 .. [#metaclass_link] The following has a good decription of a metaclass plugin implemtation http://effbot.org/zone/metaclass-plugins.htm
-The plugin framework x
 
 
 ------------
@@ -43,16 +39,11 @@ Then run the python setup install::
 Writing a Simple Plugin
 -----------------------
 
-A plugin system achieves nothing on its own and so does not exist outside of the domain in which it is used. 
-As an example of the use of PyLightPlug we will focus on a scientifc application which calculates the impact
-of disasters. This is the domain in which it is was first developed (`see Risiko <http://www.riskinabox.org>`_)
+A plugin system is often particularly dependant on the domain in which it is applied. As an example of the use of PyLightPlug we will focus on a scientifc application which calculates the impact of disasters. This is the domain in which it is was first developed (`see Risiko <http://www.riskinabox.org>`_)
 
-
-Our first plugin we want to calculate a simple impact by multiplying the severity of hazard (i.e. the 
-amount of ground shaking) by the exposure (i.e. the number of people in that area). e.g.::
+Our first plugin we want to calculate a simple impact by multiplying the severity of hazard (i.e. the amount of ground shaking) by the exposure (i.e. the number of people in that area). e.g.::
 
     Impact =  Exposure x Hazard
-
 
 As the first step we need to define the plugin class.::
 
@@ -60,16 +51,14 @@ As the first step we need to define the plugin class.::
           pass
 
 Every plugin must be subclassed from PyLightPlug.FunctionProvider. This is the 
-method of registration for the plugin and allows the Plugin Manager to know what plugins are
-available.
+method of registration for the plugin and allows the Plugin Manager to know what plugins are available.
 
-The parameters required to run the plugin, and indeed all parameters specific to the plugin,
-are defined in the doc string of the class::
+The parameters required to run the plugin, and indeed all parameters specific to the plugin, are defined in the doc string of the class::
 
     class EarthquakeFatalityFunction(FunctionProvider):
     	"""Risk plugin for earthquake damage
 
-    	:author Haji
+    	:author Ted
 
     	:param requires category=="hazard" and subcategory.startswith("earthquake") and layerType=="raster"
     	:param requires category=="exposure" and subcategory.startswith("population") and layerType=="raster"
@@ -80,9 +69,9 @@ This tells the PyLightPlug manager that this plugin requires inputs of
 * category of 'hazard', with a subcategory of 'earthquake' and it must be a layerType of 'Raster'
 * category of 'exposure', with a subcategory of 'earthquake' and it must be a layerType of 'Raster'
 
-.. note:: Lines can be broken using the line continuation character '\' at the end of a line
+.. note:: Lines can be broken using the line continuation character '\\' at the end of a line
 
-Each plugin must define a run method which is the plugin execution code.::
+Each plugin must define a `run` method which is the plugin execution code::
 
     @staticmethod
     def run(input):
@@ -110,6 +99,8 @@ At the end of the function the calculated impact is returned.
 ------------------------
 Using the Plugin Manager
 ------------------------
+
+The plugin manager keeps track of all the plugins and searching, requirements checking and retrieval functions. All communications with the plugin are achieved through a dictionary.
 
 When building your plugin manager the following functions are exposed by PyLightPlug::
         
@@ -147,7 +138,7 @@ When building your plugin manager the following functions are exposed by PyLight
 The sequence of calls for the pyPluginManager is to use the requirements met function to determine
 which plugins can run by passing a dictionary  `params` to the discovered plugins. Once the plugins
 the can run have been discovered `get_function` can be called to obtain a handle to the plugin. The 
-plugin can then be executed using::
+plugin can then be executed using the following type of call::
   
     my_plugin = get_function('EarthquakeFatalityFunction')
     input_params = dict(category = 'hazard', subcategory='....')
@@ -155,4 +146,13 @@ plugin can then be executed using::
         my_plugin.run(input_params)
     
     
+-------------------------------
+Getting a list of valid plugins
+-------------------------------
 
+To get a list of plugins that can execute for a given context (i.e. from a menu or selection box) all available plugins must be checked to see if the requirements are met::
+
+    input_params = dict(category = 'hazard', subcategory='....')
+    my_plugin = [get_function(name) 
+    for name in get_all_functions()
+        if requirement_met(my_plugin,params = input_params)]
